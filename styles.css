@@ -101,3 +101,11 @@ body {
 .contact-section .social a:active {
   color: #fff;
 }
+
+#about{
+  background: rgba(255, 255, 255, 0.7);
+}
+
+#me{
+  background-image:  rgba(255, 255, 255, 0.7);
+}
