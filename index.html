@@ -1,154 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Tom Chege</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tom Maina Chege - Product Manager</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --bg-color: #f4f4f4;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            padding: 1rem 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+        
+        nav ul li {
+            margin: 0 1rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        section {
+            margin: 3rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .experience-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .experience-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skills-section {
+            background-color: #2c3e50;
+            padding: 4rem 0;
+            color: white;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .skill-category h3 {
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-list {
+            list-style-type: none;
+        }
+        
+        .skill-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-item::before {
+            content: '✓';
+            color: #2ecc71;
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .achievements-list {
+            list-style-type: none;
+        }
+        
+        .achievements-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .achievements-list li::before {
+            content: '🏆';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-item i {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        #contact {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 4rem 0;
+            margin-top: 3rem;
+        }
+
+        #contact h2 {
+            color: white;
+            border-bottom: 2px solid white;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 1rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-<div class="top d-flex align-items-center justify-content-center" style="height:100vh;" id="home">
-  <!-- Header -->
-  <header class="masthead">
-    <div class="container d-flex h-100 align-items-center">
-      <div class="mx-auto text-center">
-        <h1 class="text-white-50 mx-auto my-0 text-uppercase">Tom Chege</h1>
-        <h2 class="text-white-50 mx-auto mt-2 mb-5">Full Stack Web Developer</h2>
-        <a href="#about" class="btn btn-outline-primary">Welcome</a>
-      </div>
-    </div>
-  </header>
-  <!-- <img src="./images/tWingtext.png" style="height:50%; " alt=""> -->
-  <video autoplay loop id="video-background" muted plays-inline>
-    <source class="w-100" src="./video/Golden.mp4" type="video/mp4">
-  </video>
-</div>
-
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top align-items-center">
-  <!-- Toggler/collapsibe Button -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <!-- Navbar links -->
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#home">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#about">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#contact">Contact</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-</div>
-
-<body id="top">
-
-  <!-- About Section -->
-  <br>
-  <section id="about" class="about-section text-center">
+<body>
+    <header>
+        <h1>Tom Maina Chege</h1>
+        <p>Product Manager</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
     <div class="container">
-      <div class="row">
-        <div class="media">
-          <img class="d-flex align-self-left mr-3" src="/images/me.jpg" alt="emdeechege">
-          <div class="media-body d-flex align-self-center">
-            <h5 class="mt-0">Personal Profile</h5>
-            <p>I am a full stack developer.</p>
-              <p class="mb-0">I am experienced with the technologies highlighted below.</p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-
-  <!-- Contact Section -->
-  <section class="contact-section bg-black" id="contact">
-    <div class="container">
-
-      <div class="row">
-
-        <div class="col-md-4 mb-3 mb-md-0">
-          <div class="card py-4 h-100">
-            <div class="card-body text-center">
-              <i class="fas fa-envelope text-primary mb-2"></i>
-              <h4 class="text-uppercase m-0">Email</h4>
-              <hr class="my-4">
-              <div class="small text-black-50">
-                <a href="#">emdeechege@gmail.com</a>
-              </div>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Experienced Product Manager with over 3 years of dedicated practice in product management, backed by a robust background in sales and business development. Specializing in a user-centric approach to product lifecycle management, my expertise lies in understanding user needs deeply and crafting high ROI solutions.</p>
+        </section>
+        
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <h3>Product Manager - Peach Cars</h3>
+                <p>08/2023 - 05/2024 | Kenya</p>
+                <ul>
+                    <li>Developed and implemented a flexible product roadmap aligned with business goals and market dynamics.</li>
+                    <li>Directed and coordinated cross-functional teams in product development lifecycle.</li>
+                    <li>Utilized data analytics to inform product strategy and optimize processes.</li>
+                </ul>
             </div>
-          </div>
-        </div>
-
-        <div class="col-md-4 mb-3 mb-md-0">
-          <div class="card py-4 h-100">
-            <div class="card-body text-center">
-              <i class="fas fa-mobile-alt text-primary mb-2"></i>
-              <h4 class="text-uppercase m-0">Phone</h4>
-              <hr class="my-4">
-              <div class="small text-black-50">+254 725 222 520</div>
+            <div class="experience-item">
+                <h3>Product Manager - Marketforce Technologies</h3>
+                <p>01/2022 - 08/2023 | Kenya</p>
+                <ul>
+                    <li>Successfully managed the product portfolio through strategic expansions, enhancements, and retirements.</li>
+                    <li>Developed and gained approval for comprehensive short-term and long-term product roadmaps.</li>
+                    <li>Orchestrated seamless coordination among cross-functional teams throughout the product lifecycle.</li>
+                </ul>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="social d-flex justify-content-center">
-        <a href="#" class="mx-2">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/tom-chege-2868862b/" class="mx-2">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="https://github.com/emdeechege" class="mx-2">
-          <i class="fab fa-github"></i>
-        </a>
-      </div>
-
+        </section>
     </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-black small text-center text-white-50">
+    
     <div class="container">
-      Copyright &copy; Tom Chege 2018
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <h2>Skills & Expertise</h2>
+                <div class="skills-grid" id="skillsGrid">
+                    <!-- Skills will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+    
+    
+        <section id="achievements">
+            <h2>Achievements</h2>
+            <ul class="achievements-list">
+                <li>Successfully led the transition of product development from an external team to an in-house team at Peach Cars, completing the process within a 3-month timeframe while maintaining product quality and development momentum.</li>
+                <li>Drove 200% organic growth in app downloads through strategic product enhancements.</li>
+                <li>Recognized severally in townhalls as PM of the month.</li>
+            </ul>
+        </section>
+        
+        <section id="contact">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:emdeechege@gmail.com">emdeechege@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+254725222520">+254 725 222 520</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/tom-chege" target="_blank">linkedin.com/in/tom-chege</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Nairobi, Kenya</span>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-  </footer>
+    
+    <script>
+        // Skills data
+        const skillCategories = [
+            {
+                name: "Product Management",
+                skills: ["Product Planning", "Product Development", "Product Roadmaps", "Go-to-Market Plans"]
+            },
+            {
+                name: "Technical Skills",
+                skills: ["Software Testing", "Software Development"]
+            },
+            {
+                name: "Business & Strategy",
+                skills: ["Market Research", "Stakeholder and/or client Management", "Value Proposition"]
+            },
+            {
+                name: "Leadership",
+                skills: ["Team Management", "Cross-functional Coordination", "Strategic Planning"]
+            }
+        ];
 
+        // Function to create skill categories
+        function createSkillCategories() {
+            const skillsGrid = document.getElementById('skillsGrid');
+            skillCategories.forEach(category => {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'skill-category';
+                categoryDiv.innerHTML = `
+                    <h3>${category.name}</h3>
+                    <ul class="skill-list">
+                        ${category.skills.map(skill => `<li class="skill-item">${skill}</li>`).join('')}
+                    </ul>
+                `;
+                skillsGrid.appendChild(categoryDiv);
+            });
+        }
 
+        // Call the function to create skill categories
+        createSkillCategories();
 
+        // Intersection Observer for section animations
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <script>
-    window.onscroll = function() {
-      myFunction()
-    };
+        sections.forEach(section => {
+            observer.observe(section);
+        });
 
-    var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
+        // GSAP animations
+        gsap.registerPlugin(ScrollTrigger);
 
-    function myFunction() {
-      if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky")
-      } else {
-        navbar.classList.remove("sticky");
-      }
-    }
-  </script>
+        gsap.from("header", { duration: 1, y: -50, opacity: 0, ease: "power3.out" });
+        gsap.from("nav", { duration: 1, y: -20, opacity: 0, ease: "power3.out", delay: 0.5 });
+        
+        gsap.from(".experience-item", { 
+            duration: 0.8, 
+            opacity: 0, 
+            y: 20, 
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: "#experience",
+                start: "top 80%"
+            }
+        });
+
+        gsap.from(".skill-category", {
+            duration: 0.8,
+            opacity: 0,
+            y: 20,
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: "#skills",
+                start: "top 80%"
+            }
+        }); // Add this closing bracket
+
+        // Add animation for contact items
+        gsap.from(".contact-item", {
+            duration: 0.8,
+            opacity: 0,
+            y: 20,
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: "#contact",
+                start: "top 80%"
+            }
+        });
+    </script>
 </body>
-
 </html>
