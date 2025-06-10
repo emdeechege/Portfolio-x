@@ -4,447 +4,293 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tom Maina Chege - Product Manager</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-        
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --accent-color: #e74c3c;
-            --text-color: #333;
-            --bg-color: #f4f4f4;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        }
-        
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        nav {
-            background-color: var(--secondary-color);
-            padding: 1rem 0;
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style-type: none;
-        }
-        
-        nav ul li {
-            margin: 0 1rem;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-        
-        nav ul li a:hover {
-            color: var(--accent-color);
-        }
-        
-        section {
-            margin: 3rem 0;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .experience-item {
-            background-color: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .experience-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .skills-section {
-            background-color: #2c3e50;
-            padding: 4rem 0;
-            color: white;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-        
-        .skill-category {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .skill-category h3 {
-            color: #3498db;
-            margin-bottom: 1rem;
-        }
-        
-        .skill-list {
-            list-style-type: none;
-        }
-        
-        .skill-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-        
-        .skill-item::before {
-            content: '✓';
-            color: #2ecc71;
-            margin-right: 0.5rem;
-            font-weight: bold;
-        }
-        
-        .achievements-list {
-            list-style-type: none;
-        }
-        
-        .achievements-list li {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        
-        .achievements-list li::before {
-            content: '🏆';
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-        
-        .contact-info {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .contact-item i {
-            font-size: 1.2rem;
-            color: var(--primary-color);
-        }
-
-        #contact {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 4rem 0;
-            margin-top: 3rem;
-        }
-
-        #contact h2 {
-            color: white;
-            border-bottom: 2px solid white;
-            display: inline-block;
-            margin-bottom: 2rem;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            padding: 1rem;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .contact-item i {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-right: 1rem;
-        }
-
-        .contact-item a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: var(--accent-color);
-        }
-
-        @media (max-width: 768px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav ul li {
-                margin: 0.5rem 0;
-            }
-            
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Tom Maina Chege</h1>
-        <p>Product Manager</p>
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#achievements">Achievements</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-text">TC</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#hero" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#achievements" class="nav-link">Achievements</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
     </nav>
-    
-    <div class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Experienced Product Manager with over 3 years of dedicated practice in product management, backed by a robust background in sales and business development. Specializing in a user-centric approach to product lifecycle management, my expertise lies in understanding user needs deeply and crafting high ROI solutions.</p>
-        </section>
-        
-        <section id="experience">
-            <h2>Experience</h2>
-            <div class="experience-item">
-                <h3>Product Manager - Peach Cars</h3>
-                <p>08/2023 - 05/2024 | Kenya</p>
-                <ul>
-                    <li>Developed and implemented a flexible product roadmap aligned with business goals and market dynamics.</li>
-                    <li>Directed and coordinated cross-functional teams in product development lifecycle.</li>
-                    <li>Utilized data analytics to inform product strategy and optimize processes.</li>
-                </ul>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-background">
+            <div class="gradient-overlay"></div>
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
             </div>
-            <div class="experience-item">
-                <h3>Product Manager - Marketforce Technologies</h3>
-                <p>01/2022 - 08/2023 | Kenya</p>
-                <ul>
-                    <li>Successfully managed the product portfolio through strategic expansions, enhancements, and retirements.</li>
-                    <li>Developed and gained approval for comprehensive short-term and long-term product roadmaps.</li>
-                    <li>Orchestrated seamless coordination among cross-functional teams throughout the product lifecycle.</li>
-                </ul>
-            </div>
-        </section>
-    </div>
-    
-    <div class="container">
-        <section id="skills" class="skills-section">
-            <div class="container">
-                <h2>Skills & Expertise</h2>
-                <div class="skills-grid" id="skillsGrid">
-                    <!-- Skills will be dynamically inserted here -->
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Tom Maina</span>
+                    <span class="title-line accent">Chege</span>
+                </h1>
+                <p class="hero-subtitle">Product Manager & Strategic Innovator</p>
+                <p class="hero-description">
+                    Transforming ideas into user-centric solutions with 3+ years of experience 
+                    in product lifecycle management and cross-functional team leadership.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
                 </div>
             </div>
-        </section>
-    
-    
-        <section id="achievements">
-            <h2>Achievements</h2>
-            <ul class="achievements-list">
-                <li>Successfully led the transition of product development from an external team to an in-house team at Peach Cars, completing the process within a 3-month timeframe while maintaining product quality and development momentum.</li>
-                <li>Drove 200% organic growth in app downloads through strategic product enhancements.</li>
-                <li>Recognized severally in townhalls as PM of the month.</li>
-            </ul>
-        </section>
-        
-        <section id="contact">
-            <div class="container">
-                <h2>Get in Touch</h2>
-                <div class="contact-grid">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:emdeechege@gmail.com">emdeechege@gmail.com</a>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title">Crafting Digital Experiences</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-description">
+                        I'm a passionate Product Manager with over 3 years of dedicated practice in product management, 
+                        backed by a robust background in sales and business development. My expertise lies in understanding 
+                        user needs deeply and crafting high ROI solutions through a user-centric approach to product 
+                        lifecycle management.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">200%</span>
+                            <span class="stat-label">Growth Achieved</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">Products Managed</span>
+                        </div>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:+254725222520">+254 725 222 520</a>
+                </div>
+                <div class="about-visual">
+                    <div class="profile-card">
+                        <div class="profile-image">
+                            <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Tom Maina Chege" />
+                        </div>
+                        <div class="profile-info">
+                            <h3>Tom Maina Chege</h3>
+                            <p>Product Manager</p>
+                            <div class="profile-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Nairobi, Kenya</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="contact-item">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Experience</span>
+                <h2 class="section-title">Professional Journey</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Product Manager</h3>
+                            <span class="company">Peach Cars</span>
+                            <span class="duration">08/2023 - 05/2024</span>
+                        </div>
+                        <ul class="timeline-achievements">
+                            <li>Developed and implemented a flexible product roadmap aligned with business goals and market dynamics</li>
+                            <li>Directed and coordinated cross-functional teams in product development lifecycle</li>
+                            <li>Utilized data analytics to inform product strategy and optimize processes</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Product Strategy</span>
+                            <span class="tag">Team Leadership</span>
+                            <span class="tag">Data Analytics</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Product Manager</h3>
+                            <span class="company">Marketforce Technologies</span>
+                            <span class="duration">01/2022 - 08/2023</span>
+                        </div>
+                        <ul class="timeline-achievements">
+                            <li>Successfully managed the product portfolio through strategic expansions, enhancements, and retirements</li>
+                            <li>Developed and gained approval for comprehensive short-term and long-term product roadmaps</li>
+                            <li>Orchestrated seamless coordination among cross-functional teams throughout the product lifecycle</li>
+                        </ul>
+                        <div class="timeline-tags">
+                            <span class="tag">Portfolio Management</span>
+                            <span class="tag">Strategic Planning</span>
+                            <span class="tag">Cross-functional Leadership</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Skills & Expertise</span>
+                <h2 class="section-title">What I Bring to the Table</h2>
+            </div>
+            <div class="skills-grid" id="skillsGrid">
+                <!-- Skills will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Achievements</span>
+                <h2 class="section-title">Key Accomplishments</h2>
+            </div>
+            <div class="achievements-grid">
+                <div class="achievement-card" data-aos="fade-up">
+                    <div class="achievement-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Team Transition Leadership</h3>
+                        <p>Successfully led the transition of product development from an external team to an in-house team at Peach Cars, completing the process within a 3-month timeframe while maintaining product quality and development momentum.</p>
+                    </div>
+                </div>
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="achievement-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>200% Growth Driver</h3>
+                        <p>Drove 200% organic growth in app downloads through strategic product enhancements and user-centric improvements.</p>
+                    </div>
+                </div>
+                <div class="achievement-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Recognition Excellence</h3>
+                        <p>Recognized several times in townhalls as PM of the month for outstanding performance and leadership.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-description">
+                    Ready to discuss your next product challenge? I'd love to hear from you.
+                </p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card" data-aos="fade-up">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <a href="mailto:emdeechege@gmail.com">emdeechege@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <a href="tel:+254725222520">+254 725 222 520</a>
+                        </div>
+                    </div>
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>LinkedIn</h4>
+                            <a href="https://www.linkedin.com/in/tom-chege" target="_blank">tom-chege</a>
+                        </div>
+                    </div>
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <span>Nairobi, Kenya</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Tom Maina Chege. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/tom-chege" target="_blank">
                         <i class="fab fa-linkedin"></i>
-                        <a href="https://www.linkedin.com/in/tom-chege" target="_blank">linkedin.com/in/tom-chege</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Nairobi, Kenya</span>
-                    </div>
+                    </a>
+                    <a href="mailto:emdeechege@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
                 </div>
             </div>
-        </section>
-    </div>
-    
-    <script>
-        // Skills data
-        const skillCategories = [
-            {
-                name: "Product Management",
-                skills: ["Product Planning", "Product Development", "Product Roadmaps", "Go-to-Market Plans"]
-            },
-            {
-                name: "Technical Skills",
-                skills: ["Software Testing", "Software Development"]
-            },
-            {
-                name: "Business & Strategy",
-                skills: ["Market Research", "Stakeholder and/or client Management", "Value Proposition"]
-            },
-            {
-                name: "Leadership",
-                skills: ["Team Management", "Cross-functional Coordination", "Strategic Planning"]
-            }
-        ];
+        </div>
+    </footer>
 
-        // Function to create skill categories
-        function createSkillCategories() {
-            const skillsGrid = document.getElementById('skillsGrid');
-            skillCategories.forEach(category => {
-                const categoryDiv = document.createElement('div');
-                categoryDiv.className = 'skill-category';
-                categoryDiv.innerHTML = `
-                    <h3>${category.name}</h3>
-                    <ul class="skill-list">
-                        ${category.skills.map(skill => `<li class="skill-item">${skill}</li>`).join('')}
-                    </ul>
-                `;
-                skillsGrid.appendChild(categoryDiv);
-            });
-        }
-
-        // Call the function to create skill categories
-        createSkillCategories();
-
-        // Intersection Observer for section animations
-        const sections = document.querySelectorAll('section');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-
-        // GSAP animations
-        gsap.registerPlugin(ScrollTrigger);
-
-        gsap.from("header", { duration: 1, y: -50, opacity: 0, ease: "power3.out" });
-        gsap.from("nav", { duration: 1, y: -20, opacity: 0, ease: "power3.out", delay: 0.5 });
-        
-        gsap.from(".experience-item", { 
-            duration: 0.8, 
-            opacity: 0, 
-            y: 20, 
-            stagger: 0.2,
-            scrollTrigger: {
-                trigger: "#experience",
-                start: "top 80%"
-            }
-        });
-
-        gsap.from(".skill-category", {
-            duration: 0.8,
-            opacity: 0,
-            y: 20,
-            stagger: 0.1,
-            scrollTrigger: {
-                trigger: "#skills",
-                start: "top 80%"
-            }
-        }); // Add this closing bracket
-
-        // Add animation for contact items
-        gsap.from(".contact-item", {
-            duration: 0.8,
-            opacity: 0,
-            y: 20,
-            stagger: 0.1,
-            scrollTrigger: {
-                trigger: "#contact",
-                start: "top 80%"
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
