@@ -1,6 +1,7 @@
 # Portfolio-x
 
 This is a personal portfolio website for Tom Maina Chege, Product Manager & Software Developer. The site showcases professional experience, skills, achievements, and contact information in a modern, responsive design.
+https://emdeechege.github.io/Portfolio-x/
 
 ## Features
 
