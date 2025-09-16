@@ -1,114 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tom Maina Chege - Product Manager</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+        }
+
+        .section-bg {
+            background-color: #f9fafb;
+        }
+    </style>
 </head>
-<body>
+
+<body class="bg-white text-gray-800">
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <span class="brand-text">TC</span>
+    <nav class="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <span class="heading-font font-bold text-2xl">TC</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#hero" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition-colors">About</a>
+                    <a href="#experience" class="text-gray-700 hover:text-blue-600 transition-colors">Experience</a>
+                    <a href="#skills" class="text-gray-700 hover:text-blue-600 transition-colors">Skills</a>
+                    <a href="#achievements" class="text-gray-700 hover:text-blue-600 transition-colors">Achievements</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-700">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
             </div>
-            <div class="nav-menu" id="nav-menu">
-                <a href="#hero" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#achievements" class="nav-link">Achievements</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 shadow-lg">
+            <div class="flex flex-col space-y-4">
+                <a href="#hero" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-600 transition-colors">About</a>
+                <a href="#experience" class="text-gray-700 hover:text-blue-600 transition-colors">Experience</a>
+                <a href="#skills" class="text-gray-700 hover:text-blue-600 transition-colors">Skills</a>
+                <a href="#achievements" class="text-gray-700 hover:text-blue-600 transition-colors">Achievements</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="hero-background">
-            <div class="gradient-overlay"></div>
-            <div class="floating-shapes">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
-                <div class="shape shape-4"></div>
-            </div>
-        </div>
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">
-                    <span class="title-line">Tom Maina</span>
-                    <span class="title-line accent">Chege</span>
-                </h1>
-                <p class="hero-subtitle">Product Manager & Strategic Innovator</p>
-                <p class="hero-description">
-                    Transforming ideas into user-centric solutions with 3+ years of experience 
-                    in product lifecycle management and cross-functional team leadership.
-                </p>
-                <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                    <a href="#about" class="btn btn-secondary">Learn More</a>
+    <section id="hero" class="hero-bg min-h-screen flex items-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h1 class="heading-font text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                        <span class="gradient-text">Tom Maina Chege</span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold text-gray-700 mb-8">Product Manager & Strategic
+                        Innovator</h2>
+                    <p class="text-lg text-gray-600 mb-10 max-w-lg">
+                        Transforming ideas into user-centric solutions with 3+ years of experience in product lifecycle
+                        management and cross-functional team leadership.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#contact"
+                            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                            Get In Touch
+                        </a>
+                        <a href="#about"
+                            class="border border-gray-300 hover:border-gray-400 text-gray-700 px-6 py-3 rounded-lg font-medium transition-colors">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <div data-aos="fade-left" class="flex justify-center">
+                    <div class="relative">
+                        <div
+                            class="absolute -inset-4 bg-gradient-to-r from-blue-400 to-purple-500 rounded-2xl opacity-20 blur">
+                        </div>
+                        <img src="/images/tc.JPG" alt="Tom Maina Chege"
+                            class="relative rounded-xl w-full max-w-md shadow-xl">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">About Me</span>
-                <h2 class="section-title">Crafting Digital Experiences</h2>
+    <section id="about" class="py-20 section-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="heading-font text-3xl md:text-4xl font-bold mb-4">About Me</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Crafting Digital Experiences</p>
             </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="about-description">
-                        I'm a passionate Product Manager with over 3 years of dedicated practice in product management, 
-                        backed by a robust background in sales and business development. My expertise lies in understanding 
-                        user needs deeply and crafting high ROI solutions through a user-centric approach to product 
-                        lifecycle management.
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <p class="text-lg text-gray-600 mb-8">
+                        I'm a passionate Product Manager with over 3 years of dedicated practice in product management,
+                        backed by a robust background in sales and business development. My expertise lies in
+                        understanding user needs deeply and crafting high ROI solutions through a user-centric approach
+                        to product lifecycle management.
                     </p>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">3+</span>
-                            <span class="stat-label">Years Experience</span>
+
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+                            <h3 class="heading-font text-3xl font-bold text-blue-600">3+</h3>
+                            <p class="text-gray-600">Years Experience</p>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number">200%</span>
-                            <span class="stat-label">Growth Achieved</span>
+                        <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+                            <h3 class="heading-font text-3xl font-bold text-purple-600">200%</h3>
+                            <p class="text-gray-600">Growth Achieved</p>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number">10+</span>
-                            <span class="stat-label">Products Managed</span>
+                        <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+                            <h3 class="heading-font text-3xl font-bold text-indigo-600">10+</h3>
+                            <p class="text-gray-600">Products Managed</p>
                         </div>
                     </div>
                 </div>
-                <div class="about-visual">
-                    <div class="profile-card">
-                        <div class="profile-image">
-                            <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Tom Maina Chege" />
+
+                <div data-aos="fade-left" class="bg-white p-8 rounded-xl shadow-sm">
+                    <div class="flex items-center space-x-6 mb-6">
+                        <div class="flex-shrink-0">
+                            <img src="images/tc.JPG" alt="Tom Maina Chege" class="h-20 w-20 rounded-full object-cover">
                         </div>
-                        <div class="profile-info">
-                            <h3>Tom Maina Chege</h3>
-                            <p>Product Manager</p>
-                            <div class="profile-location">
-                                <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3 class="heading-font text-xl font-bold">Tom Maina Chege</h3>
+                            <p class="text-gray-600">Product Manager</p>
+                            <div class="flex items-center mt-2 text-gray-500">
+                                <i data-feather="map-pin" class="w-4 h-4 mr-2"></i>
                                 <span>Nairobi, Kenya</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-blue-100 p-2 rounded-lg text-blue-600">
+                                <i data-feather="briefcase" class="w-5 h-5"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-medium">Product Strategy</h4>
+                                <p class="text-sm text-gray-600">Developing vision and roadmaps</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-purple-100 p-2 rounded-lg text-purple-600">
+                                <i data-feather="users" class="w-5 h-5"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-medium">Team Leadership</h4>
+                                <p class="text-sm text-gray-600">Cross-functional coordination</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 bg-indigo-100 p-2 rounded-lg text-indigo-600">
+                                <i data-feather="bar-chart-2" class="w-5 h-5"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-medium">Data Analytics</h4>
+                                <p class="text-sm text-gray-600">Informed decision making</p>
                             </div>
                         </div>
                     </div>
@@ -118,50 +197,94 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="section section-alt">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Experience</span>
-                <h2 class="section-title">Professional Journey</h2>
+    <section id="experience" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="heading-font text-3xl md:text-4xl font-bold mb-4">Experience</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Professional Journey</p>
             </div>
-            <div class="timeline">
-                <div class="timeline-item" data-aos="fade-up">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Product Manager</h3>
-                            <span class="company">Peach Cars</span>
-                            <span class="duration">08/2023 - 05/2024</span>
-                        </div>
-                        <ul class="timeline-achievements">
-                            <li>Developed and implemented a flexible product roadmap aligned with business goals and market dynamics</li>
-                            <li>Directed and coordinated cross-functional teams in product development lifecycle</li>
-                            <li>Utilized data analytics to inform product strategy and optimize processes</li>
+
+            <div class="space-y-12">
+                <!-- Experience 1 -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8" data-aos="fade-up">
+                    <div class="md:col-span-1">
+                        <h3 class="heading-font text-xl font-bold">Product Manager</h3>
+                        <p class="text-gray-600">Peach Cars</p>
+                        <p class="text-sm text-gray-500">08/2023 - 05/2024</p>
+                    </div>
+                    <div class="md:col-span-3">
+                        <ul class="space-y-4">
+                            <li class="flex">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="h-2 w-2 bg-blue-600 rounded-full"></div>
+                                </div>
+                                <p class="ml-3 text-gray-700">Developed and implemented a flexible product roadmap
+                                    aligned with business goals and market dynamics</p>
+                            </li>
+                            <li class="flex">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="h-2 w-2 bg-blue-600 rounded-full"></div>
+                                </div>
+                                <p class="ml-3 text-gray-700">Directed and coordinated cross-functional teams in product
+                                    development lifecycle</p>
+                            </li>
+                            <li class="flex">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="h-2 w-2 bg-blue-600 rounded-full"></div>
+                                </div>
+                                <p class="ml-3 text-gray-700">Utilized data analytics to inform product strategy and
+                                    optimize processes</p>
+                            </li>
                         </ul>
-                        <div class="timeline-tags">
-                            <span class="tag">Product Strategy</span>
-                            <span class="tag">Team Leadership</span>
-                            <span class="tag">Data Analytics</span>
+                        <div class="mt-6 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Product
+                                Strategy</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Team
+                                Leadership</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Data
+                                Analytics</span>
                         </div>
                     </div>
                 </div>
-                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Product Manager</h3>
-                            <span class="company">Marketforce Technologies</span>
-                            <span class="duration">01/2022 - 08/2023</span>
-                        </div>
-                        <ul class="timeline-achievements">
-                            <li>Successfully managed the product portfolio through strategic expansions, enhancements, and retirements</li>
-                            <li>Developed and gained approval for comprehensive short-term and long-term product roadmaps</li>
-                            <li>Orchestrated seamless coordination among cross-functional teams throughout the product lifecycle</li>
+
+                <!-- Experience 2 -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8" data-aos="fade-up">
+                    <div class="md:col-span-1">
+                        <h3 class="heading-font text-xl font-bold">Product Manager</h3>
+                        <p class="text-gray-600">Marketforce Technologies</p>
+                        <p class="text-sm text-gray-500">01/2022 - 08/2023</p>
+                    </div>
+                    <div class="md:col-span-3">
+                        <ul class="space-y-4">
+                            <li class="flex">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="h-2 w-2 bg-blue-600 rounded-full"></div>
+                                </div>
+                                <p class="ml-3 text-gray-700">Successfully managed the product portfolio through
+                                    strategic expansions, enhancements, and retirements</p>
+                            </li>
+                            <li class="flex">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="h-2 w-2 bg-blue-600 rounded-full"></div>
+                                </div>
+                                <p class="ml-3 text-gray-700">Developed and gained approval for comprehensive short-term
+                                    and long-term product roadmaps</p>
+                            </li>
+                            <li class="flex">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="h-2 w-2 bg-blue-600 rounded-full"></div>
+                                </div>
+                                <p class="ml-3 text-gray-700">Orchestrated seamless coordination among cross-functional
+                                    teams throughout the product lifecycle</p>
+                            </li>
                         </ul>
-                        <div class="timeline-tags">
-                            <span class="tag">Portfolio Management</span>
-                            <span class="tag">Strategic Planning</span>
-                            <span class="tag">Cross-functional Leadership</span>
+                        <div class="mt-6 flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full">Portfolio
+                                Management</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm rounded-full">Strategic
+                                Planning</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full">Cross-functional
+                                Leadership</span>
                         </div>
                     </div>
                 </div>
@@ -170,127 +293,329 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Skills & Expertise</span>
-                <h2 class="section-title">What I Bring to the Table</h2>
+    <section id="skills" class="py-20 section-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="heading-font text-3xl md:text-4xl font-bold mb-4">Skills & Expertise</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">What I Bring to the Table</p>
             </div>
-            <div class="skills-grid" id="skillsGrid">
-                <!-- Skills will be dynamically inserted here -->
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Skill Category 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-blue-100 p-3 rounded-lg inline-block mb-4">
+                        <i data-feather="box" class="w-6 h-6 text-blue-600"></i>
+                    </div>
+                    <h3 class="heading-font text-xl font-bold mb-4">Product Management</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            <span>Product Planning</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            <span>Product Development</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            <span>Product Roadmaps</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            <span>Go-to-Market Plans</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Skill Category 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-purple-100 p-3 rounded-lg inline-block mb-4">
+                        <i data-feather="code" class="w-6 h-6 text-purple-600"></i>
+                    </div>
+                    <h3 class="heading-font text-xl font-bold mb-4">Technical Skills</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            <span>Software Testing</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            <span>Software Development</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            <span>Data Analytics</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            <span>User Research</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Skill Category 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-indigo-100 p-3 rounded-lg inline-block mb-4">
+                        <i data-feather="trending-up" class="w-6 h-6 text-indigo-600"></i>
+                    </div>
+                    <h3 class="heading-font text-xl font-bold mb-4">Business & Strategy</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            <span>Market Research</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            <span>Stakeholder Management</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            <span>Value Proposition</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            <span>Strategic Planning</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Skill Category 4 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-green-100 p-3 rounded-lg inline-block mb-4">
+                        <i data-feather="users" class="w-6 h-6 text-green-600"></i>
+                    </div>
+                    <h3 class="heading-font text-xl font-bold mb-4">Leadership</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            <span>Team Management</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            <span>Cross-functional Coordination</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            <span>Project Management</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="check" class="w-4 h-4 text-green-500 mr-2"></i>
+                            <span>Agile Methodologies</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Achievements Section -->
-    <section id="achievements" class="section section-alt">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Achievements</span>
-                <h2 class="section-title">Key Accomplishments</h2>
+    <section id="achievements" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="heading-font text-3xl md:text-4xl font-bold mb-4">Achievements</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Key Accomplishments</p>
             </div>
-            <div class="achievements-grid">
-                <div class="achievement-card" data-aos="fade-up">
-                    <div class="achievement-icon">
-                        <i class="fas fa-rocket"></i>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Achievement 1 -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-xl" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="bg-white p-3 rounded-lg inline-block mb-6 shadow-sm">
+                        <i data-feather="users" class="w-6 h-6 text-blue-600"></i>
                     </div>
-                    <div class="achievement-content">
-                        <h3>Team Transition Leadership</h3>
-                        <p>Successfully led the transition of product development from an external team to an in-house team at Peach Cars, completing the process within a 3-month timeframe while maintaining product quality and development momentum.</p>
-                    </div>
+                    <h3 class="heading-font text-xl font-bold mb-4">Team Transition Leadership</h3>
+                    <p class="text-gray-600">
+                        Successfully led the transition of product development from an external team to an in-house team
+                        at Peach Cars, completing the process within a 3-month timeframe while maintaining product
+                        quality and development momentum.
+                    </p>
                 </div>
-                <div class="achievement-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="achievement-icon">
-                        <i class="fas fa-chart-line"></i>
+
+                <!-- Achievement 2 -->
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div class="bg-white p-3 rounded-lg inline-block mb-6 shadow-sm">
+                        <i data-feather="trending-up" class="w-6 h-6 text-purple-600"></i>
                     </div>
-                    <div class="achievement-content">
-                        <h3>200% Growth Driver</h3>
-                        <p>Drove 200% organic growth in app downloads through strategic product enhancements and user-centric improvements.</p>
-                    </div>
+                    <h3 class="heading-font text-xl font-bold mb-4">200% Growth Driver</h3>
+                    <p class="text-gray-600">
+                        Drove 200% organic growth in app downloads through strategic product enhancements and
+                        user-centric improvements.
+                    </p>
                 </div>
-                <div class="achievement-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="achievement-icon">
-                        <i class="fas fa-trophy"></i>
+
+                <!-- Achievement 3 -->
+                <div class="bg-gradient-to-br from-indigo-50 to-blue-50 p-8 rounded-xl" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <div class="bg-white p-3 rounded-lg inline-block mb-6 shadow-sm">
+                        <i data-feather="award" class="w-6 h-6 text-indigo-600"></i>
                     </div>
-                    <div class="achievement-content">
-                        <h3>Recognition Excellence</h3>
-                        <p>Recognized several times in townhalls as PM of the month for outstanding performance and leadership.</p>
-                    </div>
+                    <h3 class="heading-font text-xl font-bold mb-4">Recognition Excellence</h3>
+                    <p class="text-gray-600">
+                        Recognized several times in townhalls as PM of the month for outstanding performance and
+                        leadership.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section contact-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Get In Touch</span>
-                <h2 class="section-title">Let's Work Together</h2>
-                <p class="section-description">
-                    Ready to discuss your next product challenge? I'd love to hear from you.
-                </p>
+    <section id="contact" class="py-20 section-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="heading-font text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">Let's Work Together</p>
             </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-card" data-aos="fade-up">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <p class="text-lg text-gray-600 mb-8">
+                        Ready to discuss your next product challenge? I'd love to hear from you.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-blue-100 p-3 rounded-lg text-blue-600">
+                                <i data-feather="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="font-medium text-gray-900">Email</h3>
+                                <a href="mailto:emdeechege@gmail.com"
+                                    class="text-blue-600 hover:text-blue-800 transition-colors">emdeechege@gmail.com</a>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <a href="mailto:emdeechege@gmail.com">emdeechege@gmail.com</a>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-purple-100 p-3 rounded-lg text-purple-600">
+                                <i data-feather="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="font-medium text-gray-900">Phone</h3>
+                                <a href="tel:+254725222520"
+                                    class="text-blue-600 hover:text-blue-800 transition-colors">+254 725 222 520</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-indigo-100 p-3 rounded-lg text-indigo-600">
+                                <i data-feather="linkedin" class="w-5 h-5"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="font-medium text-gray-900">LinkedIn</h3>
+                                <a href="https://www.linkedin.com/in/tom-chege" target="_blank"
+                                    class="text-blue-600 hover:text-blue-800 transition-colors">tom-chege</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-green-100 p-3 rounded-lg text-green-600">
+                                <i data-feather="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="font-medium text-gray-900">Location</h3>
+                                <p class="text-gray-600">Nairobi, Kenya</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Phone</h4>
-                            <a href="tel:+254725222520">+254 725 222 520</a>
-                        </div>
+
+                    <div class="mt-12 flex space-x-4">
+                        <a href="https://www.linkedin.com/in/tom-chege" target="_blank"
+                            class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-colors">
+                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="mailto:emdeechege@gmail.com"
+                            class="bg-gray-800 hover:bg-gray-900 text-white p-3 rounded-full transition-colors">
+                            <i data-feather="mail" class="w-5 h-5"></i>
+                        </a>
                     </div>
-                    <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="contact-icon">
-                            <i class="fab fa-linkedin"></i>
+                </div>
+
+                <div data-aos="fade-left">
+                    <form class="bg-white p-8 rounded-xl shadow-sm">
+                        <div class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                <input type="text" id="name" name="name"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" name="email"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
+                            </div>
+
+                            <div>
+                                <label for="subject"
+                                    class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                                <input type="text" id="subject" name="subject"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
+                            </div>
+
+                            <div>
+                                <label for="message"
+                                    class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                <textarea id="message" name="message" rows="4"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"></textarea>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                                Send Message
+                            </button>
                         </div>
-                        <div class="contact-details">
-                            <h4>LinkedIn</h4>
-                            <a href="https://www.linkedin.com/in/tom-chege" target="_blank">tom-chege</a>
-                        </div>
-                    </div>
-                    <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Location</h4>
-                            <span>Nairobi, Kenya</span>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2024 Tom Maina Chege. All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/tom-chege" target="_blank">
-                        <i class="fab fa-linkedin"></i>
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>© 2025 Tom Maina Chege. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="https://www.linkedin.com/in/tom-chege" target="_blank"
+                        class="text-gray-400 hover:text-white transition-colors">
+                        <i data-feather="linkedin" class="w-5 h-5"></i>
                     </a>
-                    <a href="mailto:emdeechege@gmail.com">
-                        <i class="fas fa-envelope"></i>
+                    <a href="mailto:emdeechege@gmail.com" class="text-gray-400 hover:text-white transition-colors">
+                        <i data-feather="mail" class="w-5 h-5"></i>
                     </a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            feather.replace();
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function () {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Replace feather icons
+        feather.replace();
+    </script>
 </body>
+
 </html>
